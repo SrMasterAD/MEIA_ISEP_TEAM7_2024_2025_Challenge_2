@@ -1,0 +1,100 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: #f8f8f8;
+}
+
+/* Header Styling */
+header {
+    background: #880e4f;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header nav a:hover {
+    background-color: #ffd54f;
+    color: #880e4f;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #ffd54f, #fbc02d);
+    color: #880e4f;
+    border-bottom: 5px solid #880e4f;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Buttons */
+.hero .buttons {
+    margin-top: 20px;
+}
+
+.hero .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    color: white;
+    background: #880e4f;
+    border-radius: 50px;
+    font-size: 18px;
+    margin: 0 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.hero .btn:hover {
+    background: #ad1457;
+    transform: translateY(-3px);
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #880e4f;
+    color: white;
+    font-size: 14px;
+    margin-top: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}

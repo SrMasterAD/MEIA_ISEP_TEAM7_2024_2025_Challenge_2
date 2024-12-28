@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <link rel="stylesheet" href="ranking.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Ranking</h1>
+            <nav>
+                <a href="../index/index.html">Home</a>
+                <a href="../classification/classification.html">Classificação</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Configure os Critérios</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Atributo</th>
+                        <th>Peso</th>
+                        <th>Opção</th>
+                    </tr>
+                </thead>
+                <tbody id="criteria-table"></tbody>
+            </table>
+            <div class="buttons">
+                <button onclick="resetCriteria()">Resetar</button>
+                <button onclick="searchResults()">Pesquisar</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Resultados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Nota</th>
+                        <th>Pontuação</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody id="results-table"></tbody>
+            </table>
+        </section>
+    </main>
+    <script src="ranking.js"></script>
+</body>
+</html>
