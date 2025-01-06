@@ -1,2 +1,6 @@
+# Misc
 .venv
 .idea
+.conda
+
+.DS_Store
