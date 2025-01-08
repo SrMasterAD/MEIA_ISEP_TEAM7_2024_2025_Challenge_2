@@ -1,0 +1,4 @@
+.conda
+.venv
+.DS_Store
+.idea
