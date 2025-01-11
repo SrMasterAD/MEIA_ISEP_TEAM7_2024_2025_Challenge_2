@@ -4,7 +4,7 @@ def run_neural_network(harmonize: str):
     # Mock example - replace with actual neural network logic
     if harmonize == "meat":
         return {
-            "wineName": "Merlot",
+            "wineType": "Red",
             "grape": "Cabernet Sauvignon",
             "price": "$20"
         }

@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from application.api.scripts import neural_net_example
+from application.api.infrastructure.scripts import neural_net_example
 from application.api.models.classification_response import ClassificationResponse
 
 def classification_service():

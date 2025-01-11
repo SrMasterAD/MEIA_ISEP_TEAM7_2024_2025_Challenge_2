@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaUndo, FaSearch } from "react-icons/fa";
 
 interface Criterion {
