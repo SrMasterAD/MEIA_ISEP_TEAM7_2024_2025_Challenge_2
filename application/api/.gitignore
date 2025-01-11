@@ -7,3 +7,6 @@
 # Virtualization
 .venv
 .conda
+
+# fastAPI
+__pycache__/
