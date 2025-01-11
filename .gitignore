@@ -1,0 +1,9 @@
+# IDEA
+.idea
+
+# MISC
+.DS_Store
+
+# Virtualization
+.venv
+.conda
