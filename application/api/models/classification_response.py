@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
 class ClassificationResponse(BaseModel):
-    wineName: str
+    typeWine: str
     grape: str
     price: str
