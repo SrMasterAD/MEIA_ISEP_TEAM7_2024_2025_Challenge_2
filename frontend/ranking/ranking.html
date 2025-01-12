@@ -12,39 +12,44 @@
             <h1>Ranking</h1>
             <nav>
                 <a href="../index/index.html">Home</a>
-                <a href="../classification/classification.html">Classificação</a>
+                <a href="../classification/classification.html">Classification</a>
             </nav>
         </div>
     </header>
 
     <main>
         <section>
-            <h2>Configure os Critérios</h2>
+            <h2>Configure the Criteria</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Atributo</th>
-                        <th>Peso</th>
-                        <th>Opção</th>
+                        <th>Attribute</th>
+                        <th>Weight</th>
+                        <th>Option</th>
                     </tr>
                 </thead>
                 <tbody id="criteria-table"></tbody>
             </table>
             <div class="buttons">
-                <button onclick="resetCriteria()">Resetar</button>
-                <button onclick="searchResults()">Pesquisar</button>
+                <button onclick="resetCriteria()">Reset</button>
+                <button onclick="searchResults()">Search</button>
             </div>
         </section>
 
-        <section>
-            <h2>Resultados</h2>
+        <section id="results-section" style="display: none;">
+            <h2>Results</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Nota</th>
-                        <th>Pontuação</th>
-                        <th>Preço</th>
+                        <th>Rank</th>
+                        <th>Wine Name</th>
+                        <th>Type</th>
+                        <th>Grapes</th>
+                        <th>ABV</th>
+                        <th>Country</th>
+                        <th>Region</th>
+                        <th>Winery</th>
+                        <th>Website</th>
                     </tr>
                 </thead>
                 <tbody id="results-table"></tbody>

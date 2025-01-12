@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classificação</title>
+    <title>Classification</title>
     <link rel="stylesheet" href="classification.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Classificação</h1>
+            <h1>Classification</h1>
             <nav>
                 <a href="../index/index.html">Home</a>
                 <a href="../ranking/ranking.html">Ranking</a>
@@ -19,22 +19,22 @@
 
     <main>
         <section>
-            <h2>Escolha o Prato</h2>
+            <h2>Choose a Dish</h2>
             <select id="dish-select"></select>
             <div class="buttons">
-                <button onclick="resetDishes()">Resetar</button>
-                <button onclick="findWine()">Pesquisar</button>
+                <button onclick="resetDishes()">Reset</button>
+                <button onclick="findWine()">Search</button>
             </div>
         </section>
 
-        <section>
-            <h2>Recomendação</h2>
+        <section id="recommendation-section" style="display: none;">
+            <h2>Recommendations</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Tipo</th>
-                        <th>Preço</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody id="recommendation"></tbody>

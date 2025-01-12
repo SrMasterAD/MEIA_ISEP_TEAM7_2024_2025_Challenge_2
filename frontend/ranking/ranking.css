@@ -1,4 +1,4 @@
-/* General Page Styling */
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -30,13 +30,9 @@ section {
 }
 
 /* Buttons Styling */
-.buttons {
-    margin-top: 10px;
-}
-
 .buttons button {
     padding: 10px 15px;
-    margin: 0 5px;
+    margin: 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -51,10 +47,6 @@ section {
 .buttons button:last-child {
     background: #880e4f;
     color: white;
-}
-
-.buttons button:hover {
-    opacity: 0.9;
 }
 
 /* Table Styling */
@@ -75,6 +67,22 @@ table th {
     color: white;
 }
 
-table tbody tr:nth-child(even) {
-    background: #f9f9f9;
+/* Modern Select Styling */
+select {
+    padding: 8px 10px; /* Adjust padding for better spacing */
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    background: #f9f9f9 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat right 10px center;
+    background-size: 12px;
+    cursor: pointer;
+
+    width: 150px; /* Increased width to prevent text overlap */
+    padding-right: 30px; /* Extra space for the arrow */
+}
+
+select:focus {
+    outline: none; /* Remove focus outline for cleaner look */
+    border-color: #880e4f; /* Highlight border on focus */
 }

@@ -3,36 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinhos Perfeitos</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Perfect Wines</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header Section -->
+    <header class="bg-dark py-3" style="height: 10vh;">
         <div class="container">
-            <h1>Vinhos Perfeitos</h1>
-            <nav>
-                <a href="../ranking/ranking.html">Ranking</a>
-                <a href="../classification/classification.html">Classificação</a>
-            </nav>
+            <div class="row text-center align-items-center">
+                <div class="col-6">
+                    <img id="headerTeamLogo" src="../images/team.png" alt="Team Logo" class="img-fluid" style="height: 40px;">
+                    <span id="headerTeamText" class="text-light">Mechs</span>
+                </div>
+                <div class="col-6">
+                    <img id="headerProductLogo" src="../images/product.png" alt="Product Logo" class="img-fluid" style="height: 40px;">
+                    <span id="headerProductText" class="text-light">VinoMatch</span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Descubra o Vinho Ideal para Cada Ocasião</h2>
-                <p>Explore nossa classificação de vinhos ou crie um ranking personalizado de acordo com seus critérios.</p>
+    <!-- Main Section with Hero Banner -->
+    <main class="flex-grow-1">
+        <section id="heroSection" class="hero d-flex align-items-center justify-content-center" style="height: 80vh; position: relative; background-image: url('../images/background.gif'); background-size: cover; background-position: center;">
+            <!-- Dark "Cloud" Overlay -->
+            <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
+            
+            <!-- Text Content -->
+            <div class="text-center text-light p-3" style="position: relative; z-index: 1;">
+                <h2 id="heroTitle" class="display-4 fw-bold mb-3">Discover the Perfect Wine for Any Occasion</h2>
+                <p id="heroText" class="lead mb-4">Explore our wine ranking or create a personalized ranking based on your criteria.</p>
                 <div class="buttons">
-                    <a href="../ranking/ranking.html" class="btn">Ranking</a>
-                    <a href="../classification/classification.html" class="btn">Classificação</a>
+                    <a id="heroRankingButton" href="../ranking/ranking.html" class="btn btn-danger btn-lg m-2">Ranking</a>
+                    <a id="heroClassificationButton" href="../classification/classification.html" class="btn btn-danger btn-lg m-2">Classification</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>© 2024 Vinhos Perfeitos. Todos os direitos reservados.</p>
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto" style="height: 10vh;">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-6">
+                    <img id="footerUniversityLogo" src="../images/university.png" alt="University Logo" class="img-fluid" style="height: 40px;">
+                    <span id="footerUniversityText" class="text-light">Instituto Superior de Engenharia do Porto</span>
+                </div>
+                <div class="col-6">
+                    <img id="footerCourseLogo" src="../images/course.png" alt="Course Logo" class="img-fluid" style="height: 40px;">
+                    <span id="footerCourseText" class="text-light">Mestrado em Engenharia de Inteligência Artifical 2024/2025</span>
+                </div>
+            </div>
+        </div>
     </footer>
-    <script src="index.js"></script>
+
+    <!-- Bootstrap JS and Custom JS -->
+    <script src="includes/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
