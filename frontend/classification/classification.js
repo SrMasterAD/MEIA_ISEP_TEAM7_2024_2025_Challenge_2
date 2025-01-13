@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const dishes = ['Red Meat', 'Seafood', 'Pasta'];
 
     const wineRecommendation = [
-        { name: 'Special Wine', type: 'Cabernet Sauvignon', price: '$100' }
+        { type: 'Red', grape: 'Cabernet Sauvignon', price: '$100' }
     ];
 
     // Populate a table dynamically
@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Template for recommendations
     const recommendationTemplate = (wine) => `
         <tr>
-            <td>${wine.name}</td>
             <td>${wine.type}</td>
+            <td>${wine.grape}</td>
             <td>${wine.price}</td>
         </tr>
     `;
