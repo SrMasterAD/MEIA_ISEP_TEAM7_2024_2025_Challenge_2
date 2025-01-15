@@ -16,18 +16,18 @@ interface Result {
 
 export default function Rankings() {
   const [criteria, setCriteria] = useState<Criterion[]>([
-    { attribute: "Preço", weight: 1, option: "menor" },
-    { attribute: "Avaliação", weight: 1, option: "maior" },
-    { attribute: "Pontuação", weight: 1, option: "maior" },
+    { attribute: "Price", weight: 1, option: "lower" },
+    { attribute: "Rating", weight: 1, option: "higher" },
+    { attribute: "Score", weight: 1, option: "higher" },
   ]);
 
   const [results, setResults] = useState<Result[]>([]);
 
   const resetCriteria = () => {
     setCriteria([
-      { attribute: "Preço", weight: 1, option: "menor" },
-      { attribute: "Avaliação", weight: 1, option: "maior" },
-      { attribute: "Pontuação", weight: 1, option: "maior" },
+      { attribute: "Price", weight: 1, option: "lower" },
+      { attribute: "Rating", weight: 1, option: "higher" },
+      { attribute: "Score", weight: 1, option: "higher" },
     ]);
     setResults([]);
   };
@@ -59,20 +59,18 @@ export default function Rankings() {
       <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Rankings</h2>
         <section>
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">
-            Critérios
-          </h3>
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">Criteria</h3>
           <table className="min-w-full bg-white">
             <thead>
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Atributo
+                  Attribute
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Peso
+                  Weight
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Opção
+                  Options
                 </th>
               </tr>
             </thead>
@@ -82,16 +80,19 @@ export default function Rankings() {
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {criterion.attribute}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="flex flex-col w-5/6 px-6 py-4 whitespace-nowrap">
+                    <span className="ml-auto mr-auto mb-1 text-sm text-gray-900">
+                      {criterion.weight}
+                    </span>
                     <input
-                      type="number"
+                      type="range"
                       min="1"
-                      max="5"
+                      max="9"
                       value={criterion.weight}
                       onChange={(e) =>
                         handleWeightChange(index, parseInt(e.target.value))
                       }
-                      className="w-20 rounded-md border-gray-300 shadow-sm focus:border-rose-500 focus:ring-rose-500 bg-white"
+                      className="rounded-md border-gray-300 shadow-sm focus:border-rose-500 focus:ring-rose-500 bg-white"
                     />
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -102,8 +103,8 @@ export default function Rankings() {
                       }
                       className="rounded-md border-gray-300 shadow-sm focus:border-rose-500 focus:ring-rose-500 bg-white"
                     >
-                      <option value="menor">Menor</option>
-                      <option value="maior">Maior</option>
+                      <option value="lower">Minimize</option>
+                      <option value="higher">Maximize</option>
                     </select>
                   </td>
                 </tr>
@@ -116,21 +117,21 @@ export default function Rankings() {
               className="bg-red-500 text-white px-4 py-2 rounded-md flex items-center space-x-2"
             >
               <FaUndo />
-              <span>Resetar</span>
+              <span>Reset</span>
             </button>
             <button
               onClick={searchResults}
               className="bg-blue-500 text-white px-4 py-2 rounded-md flex items-center space-x-2"
             >
               <FaSearch />
-              <span>Pesquisar</span>
+              <span>Search</span>
             </button>
           </div>
         </section>
       </div>
 
       <div className="bg-white rounded-lg shadow-lg p-6">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">Resultados</h3>
+        <h3 className="text-xl font-semibold text-gray-800 mb-4">Results</h3>
         <div className="flex flex-col space-y-4">
           {results.map((result) => (
             <div
