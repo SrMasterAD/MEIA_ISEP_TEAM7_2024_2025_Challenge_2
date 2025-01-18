@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from application.api.controllers.classification_controller import router as classification_router
+from application.api.controllers.prediction_controller import router as prediction_router
 from application.api.controllers.ranking_controller import router as ranking_router
 
 app = FastAPI()
@@ -16,5 +16,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(classification_router)
+app.include_router(prediction_router)
 app.include_router(ranking_router)

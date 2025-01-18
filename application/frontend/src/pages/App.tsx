@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Classification from "./Classification";
+import Prediction from "./Prediction";
 import Home from "./Home";
 import Rankings from "./Rankings";
 
@@ -20,7 +20,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rankings" element={<Rankings />} />
-        <Route path="/classification" element={<Classification />} />
+        <Route path="/prediction" element={<Prediction />} />
       </Routes>
       <Footer />
     </main>

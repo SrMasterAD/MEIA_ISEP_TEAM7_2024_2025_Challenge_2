@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
           </Link>
         </li>
         <li>
-          <Link to="/classification" className={linkClasses("/classification")}>
+          <Link to="/prediction" className={linkClasses("/prediction")}>
             <FaLightbulb className="mr-2" /> Predictions
           </Link>
         </li>

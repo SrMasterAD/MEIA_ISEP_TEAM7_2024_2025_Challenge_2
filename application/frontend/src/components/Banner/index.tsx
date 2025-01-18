@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Banner = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex relative w-full h-[90vh] overflow-hidden">
+    <div className="flex relative w-full h-[100vh] overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -36,7 +36,7 @@ const Banner = () => {
               Rankings
             </button>
             <button
-              onClick={() => navigate("/classification")}
+              onClick={() => navigate("/prediction")}
               className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
             >
               Predictions

@@ -4,15 +4,15 @@ import { dishes } from "../../constants/dishes";
 import axios from "axios";
 import { BarLoader } from "react-spinners";
 
-interface ClassificationState {
+interface PredictionState {
   typeWine: string;
   grape: string;
   price: string;
 }
 
-export default function Classification() {
+export default function Prediction() {
   const [selectedDish, setSelectedDish] = useState<string>("");
-  const [recommendations, setRecommendations] = useState<ClassificationState>();
+  const [recommendations, setRecommendations] = useState<PredictionState>();
   const [loading, setLoading] = useState(false);
 
   const resetDishes = () => {
@@ -26,7 +26,7 @@ export default function Classification() {
       const selectedDishCategory = dishes.find(
         (dish) => dish.name === selectedDish
       )?.category;
-      const response = await axios.get(`http://localhost:8000/classification`, {
+      const response = await axios.get(`http://localhost:8000/prediction`, {
         params: {
           harmonize: selectedDishCategory,
         },
@@ -39,7 +39,7 @@ export default function Classification() {
   };
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-12">
+    <div className="px-4 sm:px-6 lg:px-8 py-12 h-[70vh]">
       <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Predictions</h2>
         <section>

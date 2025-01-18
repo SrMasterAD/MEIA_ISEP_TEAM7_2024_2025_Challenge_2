@@ -34,7 +34,7 @@ export default function Footer() {
                 className="text-gray-400 hover:text-rose-400 transition-colors duration-200 flex items-center gap-2"
               >
                 <FaPhone className="h-4 w-4" />
-                +1 (234) 567-890
+                *351 92222222
               </a>
               <a
                 href="mailto:contact@vineyardselect.com"
@@ -45,7 +45,7 @@ export default function Footer() {
               </a>
               <div className="text-gray-400 flex items-center gap-2">
                 <FaMapMarkerAlt className="h-4 w-4" />
-                123 Wine Valley, CA 94000
+                123 Wine Valley, PT 40000
               </div>
             </div>
           </div>
