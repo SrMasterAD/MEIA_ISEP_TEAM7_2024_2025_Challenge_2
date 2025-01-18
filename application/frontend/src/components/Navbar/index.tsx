@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
       : "text-white text-lg flex items-center hover:underline";
 
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="bg-gray-800 p-8">
       <ul className="flex justify-around">
         <li>
           <Link to="/" className={linkClasses("/")}>

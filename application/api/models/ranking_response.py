@@ -1,8 +1,10 @@
 from pydantic import BaseModel
 
 class RankingResponse(BaseModel):
-    name: str
-    rating: int
-    score: int
-    price: int
-    
+    wineName: str
+    wineryName: str
+    rating: str
+    price: str
+    abv: str
+    body: str
+    acidity: str

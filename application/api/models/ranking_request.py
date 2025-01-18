@@ -1,6 +1,7 @@
 from pydantic import BaseModel
+from typing import List
 
-class RankingRequest(BaseModel):
+class RankingCriteria(BaseModel):
     attribute: str
     weight: int
     option: str

@@ -1,29 +1,41 @@
 import { useState } from "react";
 import { FaSearch, FaUndo } from "react-icons/fa";
+import { dishes } from "../../constants/dishes";
+import axios from "axios";
+import { BarLoader } from "react-spinners";
 
-interface Wine {
-  name: string;
-  type: string;
+interface ClassificationState {
+  typeWine: string;
+  grape: string;
   price: string;
 }
 
-const dishes = ["Carne Vermelha", "Frutos do Mar", "Massas"];
-
-const wineRecommendation: Wine[] = [
-  { name: "Vinho Especial", type: "Cabernet Sauvignon", price: "R$100" },
-];
-
 export default function Classification() {
   const [selectedDish, setSelectedDish] = useState<string>("");
-  const [recommendations, setRecommendations] = useState<Wine[]>([]);
+  const [recommendations, setRecommendations] = useState<ClassificationState>();
+  const [loading, setLoading] = useState(false);
 
   const resetDishes = () => {
     setSelectedDish("");
-    setRecommendations([]);
+    setRecommendations(undefined);
   };
 
-  const findWine = () => {
-    setRecommendations(wineRecommendation);
+  const findWine = async () => {
+    try {
+      setLoading(true);
+      const selectedDishCategory = dishes.find(
+        (dish) => dish.name === selectedDish
+      )?.category;
+      const response = await axios.get(`http://localhost:8000/classification`, {
+        params: {
+          harmonize: selectedDishCategory,
+        },
+      });
+      setRecommendations(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching wine recommendations:", error);
+    }
   };
 
   return (
@@ -43,8 +55,8 @@ export default function Classification() {
             >
               <option value="">Select a dish</option>
               {dishes.map((dish) => (
-                <option key={dish} value={dish}>
-                  {dish}
+                <option key={dish.name} value={dish.name}>
+                  {dish.name}
                 </option>
               ))}
             </select>
@@ -59,7 +71,12 @@ export default function Classification() {
             </button>
             <button
               onClick={findWine}
-              className="bg-blue-500 text-white px-4 py-2 rounded-md flex items-center space-x-2"
+              disabled={!selectedDish}
+              className={`px-4 py-2 rounded-md flex items-center space-x-2 ${
+                selectedDish
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              }`}
             >
               <FaSearch />
               <span>Search</span>
@@ -67,24 +84,46 @@ export default function Classification() {
           </div>
         </section>
       </div>
-
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">
-          Recommendation
-        </h3>
-        <div className="flex flex-col space-y-4">
-          {recommendations.map((wine) => (
-            <div
-              key={wine.name}
-              className="flex justify-between items-center border-b border-gray-200 pb-2"
-            >
-              <span className="text-sm text-gray-900">{wine.name}</span>
-              <span className="text-sm text-gray-900">{wine.type}</span>
-              <span className="text-sm text-gray-900">{wine.price}</span>
-            </div>
-          ))}
+      {loading && (
+        <div className="flex justify-center items-center mt-6">
+          <BarLoader color={"#09f"} loading={loading} width={200} />
         </div>
-      </div>
+      )}
+      {!loading && recommendations && (
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            Recommendation
+          </h3>
+          <div className="flex flex-col space-y-4">
+            <div className="flex justify-between items-center border-b border-gray-200 pb-2">
+              <div className="flex flex-col">
+                <span className="text-sm font-semibold text-gray-700">
+                  Wine type
+                </span>
+                <span className="text-sm text-gray-900">
+                  {recommendations.typeWine}
+                </span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-semibold text-gray-700">
+                  Grape
+                </span>
+                <span className="text-sm text-gray-900">
+                  {recommendations.grape}
+                </span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-semibold text-gray-700">
+                  Price
+                </span>
+                <span className="text-sm text-gray-900">
+                  {recommendations.price}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
