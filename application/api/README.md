@@ -11,8 +11,12 @@ This API provides endpoints for wine classification and ranking. The classificat
 - Uvicorn
 
 ## Running the API
-
-1. Start the FastAPI server using Uvicorn:
+Run this configurations in the root folder of project, e.g MEIA_ISEP_TEAM7_2024_2025_Challenge_2
+1. Install the dependencies
+    ```shell
+    pip install fastapi uvicorn
+    ```
+2. Start the FastAPI server using Uvicorn:
     ```sh
     uvicorn application.api.main:app --reload
     ```
@@ -46,13 +50,25 @@ This API provides endpoints for wine classification and ranking. The classificat
 
 - **Example Request:**
     ```sh
-    curl --location 'http://localhost:8000/ranking' \
-    --header 'Content-Type: application/json' \
-    --data '{
-        "attribute": "example_attribute",
-        "weight": 10,
-        "option": "example_option"
-    }'
+  curl --location 'http://localhost:8000/ranking' \
+  --header 'Content-Type: application/json' \
+  --data '[
+      {
+          "attribute": "Price",
+          "weight": 4,
+          "option": "higher"
+      },
+      {
+          "attribute": "Rating",
+          "weight": 1,
+          "option": "higher"
+      },
+      {
+          "attribute": "Score",
+          "weight": 1,
+          "option": "higher"
+      }
+  ]'
     ```
 
 ## Testing
