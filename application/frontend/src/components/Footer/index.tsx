@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <FaWineBottle className="h-8 w-8 text-rose-500" />
               <span className="text-2xl font-bold text-white">
-                Vineyard Select
+                Vineyard Selector
               </span>
             </div>
             <p className="text-gray-400 mb-4">
@@ -53,7 +53,8 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Vineyard Select. All rights reserved.
+              © {new Date().getFullYear()} Vineyard Selector. All rights
+              reserved.
             </p>
             <div className="flex gap-4">
               <a

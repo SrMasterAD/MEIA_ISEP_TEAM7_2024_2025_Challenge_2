@@ -21,7 +21,7 @@ const Banner = () => {
           >
             <FaWineBottle className="h-10 w-10 text-rose-500" />
             <h1 className="text-4xl font-bold text-white tracking-tight">
-              Vineyard Select
+              Vineyard Selector
             </h1>
           </div>
           <p className="text-xl text-gray-200 mb-8">
