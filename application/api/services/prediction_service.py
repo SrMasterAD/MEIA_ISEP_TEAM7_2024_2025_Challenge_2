@@ -5,7 +5,6 @@ import joblib
 from fastapi import HTTPException
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import PolynomialFeatures
 from application.api.models.prediction_response import PredictionResponse
 

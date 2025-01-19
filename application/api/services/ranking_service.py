@@ -42,12 +42,12 @@ def adapt_output(df):
         RankingResponse(
             wineName=row["WineName"],
             wineryName=row["WineryName"],
-            rating=row["Ratings"],
-            price=row["Price"],
-            abv=row["ABV"],
-            body=row["Body"],
-            acidity=row["Acidity"],
-            ranking=row["Rank"]
+            rating=str(row["Ratings"]),
+            price=str(row["Price"]),
+            abv=str(row["ABV"]),
+            body=str(row["Body"]),
+            acidity=str(row["Acidity"]),
+            ranking=str(row["Rank"])
         )
         for _, row in df.iterrows()
     ]
