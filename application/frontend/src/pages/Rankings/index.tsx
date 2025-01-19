@@ -17,25 +17,30 @@ interface Result {
   abv: string;
   body: string;
   acidity: string;
+  ranking: string;
 }
 
 export default function Rankings() {
   const [criteria, setCriteria] = useState<Criterion[]>([
     { attribute: "Price", weight: 1, option: "lower" },
+    { attribute: "ABV", weight: 1, option: "higher" },
+    { attribute: "Acidity", weight: 1, option: "higher" },
+    { attribute: "Body", weight: 1, option: "higher" },
     { attribute: "Rating", weight: 1, option: "higher" },
-    { attribute: "Score", weight: 1, option: "higher" },
   ]);
 
-  const [result, setResult] = useState<Result | null>(null);
+  const [result, setResult] = useState<Result[]>([]); // Fixed type
   const [loading, setLoading] = useState(false);
 
   const resetCriteria = () => {
     setCriteria([
       { attribute: "Price", weight: 1, option: "lower" },
       { attribute: "Rating", weight: 1, option: "higher" },
-      { attribute: "Score", weight: 1, option: "higher" },
+      { attribute: "ABV", weight: 1, option: "higher" },
+      { attribute: "Body", weight: 1, option: "higher" },
+      { attribute: "Acidity", weight: 1, option: "higher" },
     ]);
-    setResult(null);
+    setResult([]);
   };
 
   const searchResults = async () => {
@@ -145,55 +150,60 @@ export default function Rankings() {
         <div className="flex justify-center items-center mt-6">
           <BarLoader color={"#09f"} loading={loading} width={200} />
         </div>
-      )}{" "}
-      {!loading && result && (
+      )}
+      {!loading && result.length > 0 && (
         <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
           <h3 className="text-xl font-semibold text-gray-800 mb-4">Results</h3>
-          <div className="flex flex-col space-y-4">
-            <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-700">
-                  Wine Name
-                </span>
-                <span className="text-sm text-gray-900">{result.wineName}</span>
+          <div className="space-y-6">
+            {result.map((res, index) => (
+              <div
+                key={index}
+                className="flex flex-wrap justify-between items-center border-b border-gray-200 pb-4"
+              >
+                <div className="flex flex-col w-4">
+                  <span className="text-sm font-semibold text-gray-700">
+                    Wine Name
+                  </span>
+                  <span className="text-sm text-gray-900">{res.wineName}</span>
+                </div>
+                <div className="flex flex-col w-5">
+                  <span className="text-sm font-semibold text-gray-700">
+                    Winery Name
+                  </span>
+                  <span className="text-sm text-gray-900">{res.wineryName}</span>
+                </div>
+                <div className="flex flex-col w-4">
+                  <span className="text-sm font-semibold text-gray-700">
+                    Rating
+                  </span>
+                  <span className="text-sm text-gray-900">{res.rating}</span>
+                </div>
+                <div className="flex flex-col w-4">
+                  <span className="text-sm font-semibold text-gray-700">
+                    Price
+                  </span>
+                  <span className="text-sm text-gray-900">{res.price}</span>
+                </div>
+                <div className="flex flex-col w-4">
+                  <span className="text-sm font-semibold text-gray-700">ABV</span>
+                  <span className="text-sm text-gray-900">{res.abv}</span>
+                </div>
+                <div className="flex flex-col w-4">
+                  <span className="text-sm font-semibold text-gray-700">Body</span>
+                  <span className="text-sm text-gray-900">{res.body}</span>
+                </div>
+                <div className="flex flex-col w-3">
+                  <span className="text-sm font-semibold text-gray-700">
+                    Acidity
+                  </span>
+                  <span className="text-sm text-gray-900">{res.acidity}</span>
+                </div>
+                <div className="flex flex-col w-3">
+                  <span className="text-sm font-semibold text-gray-700">Rank</span>
+                  <span className="text-sm text-gray-900">{res.ranking}</span>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-700">
-                  Winery Name
-                </span>
-                <span className="text-sm text-gray-900">
-                  {result.wineryName}
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-700">
-                  Rating
-                </span>
-                <span className="text-sm text-gray-900">{result.rating}</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-700">
-                  Price
-                </span>
-                <span className="text-sm text-gray-900">${result.price}</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-700">ABV</span>
-                <span className="text-sm text-gray-900">{result.abv}</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-700">
-                  Body
-                </span>
-                <span className="text-sm text-gray-900">{result.body}</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-700">
-                  Acidity
-                </span>
-                <span className="text-sm text-gray-900">{result.acidity}</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       )}

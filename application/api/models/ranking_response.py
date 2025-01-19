@@ -8,3 +8,4 @@ class RankingResponse(BaseModel):
     abv: str
     body: str
     acidity: str
+    ranking: str
