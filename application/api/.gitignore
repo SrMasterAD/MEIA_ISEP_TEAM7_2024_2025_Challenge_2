@@ -1,0 +1,12 @@
+# IDEA
+.idea
+
+# MISC
+.DS_Store
+
+# Virtualization
+.venv
+.conda
+
+# fastAPI
+__pycache__/
