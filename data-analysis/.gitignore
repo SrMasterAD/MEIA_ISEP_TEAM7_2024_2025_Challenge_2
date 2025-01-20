@@ -1,8 +1,5 @@
 # IDEA
-# Misc
-.venv
 .idea
-.conda
 
 # MISC
 .DS_Store
